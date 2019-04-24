@@ -16,8 +16,6 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 780882641999.dkr.ecr.cn-north-1.amazonaws.com.cn/q6:latest
-      - du -sh ~/.cache/
 cache:
   paths:
-    - ~/.cache/**/*
     - /var/lib/docker/**/*
