@@ -3,20 +3,17 @@
 import boto3
 import time
 
+bucket_name = 'tjji-testbjs'
+
 s3 = boto3.client('s3',region_name='cn-north-1')
-#s3.download_file('tjji-test', 'haha.txt', 'haha.txt')
 dynamodb = boto3.resource('dynamodb',region_name='cn-north-1')
 table = dynamodb.Table('q6test1')
 
-list=s3.list_objects(Bucket='tjji-test')['Contents']
-#for key in list:
-#    print(key)
-#    s3.download_file('tjji-test', key['Key'], key['Key'])
+list = s3.list_objects(Bucket=bucket_name)['Contents']
 
 for s3file in list:
-#    print(s3file['Key'])
     if s3file['StorageClass'] == 'STANDARD':
-        s3.download_file('tjji-test', s3file['Key'], s3file['Key'])
+        s3.download_file(bucket_name, s3file['Key'], s3file['Key'])
         with open(s3file['Key']) as f:
             a = f.read()
             #print(a)
@@ -29,10 +26,10 @@ for s3file in list:
         )
         s3.copy(
             {
-            'Bucket':'tjji-test',
+            'Bucket': bucket_name,
             'Key': s3file['Key']
             },
-            'tjji-test',
+            bucket_name,
             s3file['Key'],
             ExtraArgs = {
                 'StorageClass': 'GLACIER',
