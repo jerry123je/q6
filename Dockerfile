@@ -6,6 +6,9 @@ RUN apt-get update\
 && pip3 install -i http://pypi.douban.com/simple --trusted-host pypi.douban.com  awscli boto3 --upgrade --user
 
 COPY s3download.py /sbin/s3download.py
+COPY ecsspotfleet.py /sbin/ecsspotfleet.py
 RUN chmod 755 /sbin/s3download.py
+RUN chmod 755 /sbin/ecsspotfleet.py
 
 ENTRYPOINT ["/sbin/s3download.py"]
+ENTRYPOINT ["/sbin/ecsspotfleet.py", "0"]

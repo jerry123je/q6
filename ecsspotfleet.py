@@ -27,9 +27,9 @@ def check_fleet_status(spotfleet,spotfleetid):
     fleetstat = response['SpotFleetRequestConfigs'][0]['SpotFleetRequestState']
     currentcapacity = int(response['SpotFleetRequestConfigs'][0]['SpotFleetRequestConfig']['FulfilledCapacity'])
     targetcapacity = int(response['SpotFleetRequestConfigs'][0]['SpotFleetRequestConfig']['TargetCapacity'])
-    print(fleetstat)
-    print(currentcapacity)
-    print(targetcapacity)
+    print("Fleet status: %s"%fleetstat)
+    print("Current capacity: %d"%currentcapacity)
+    print("Target capacity: %d"%targetcapacity)
     if fleetstat == 'active':
         return currentcapacity
     else: 
