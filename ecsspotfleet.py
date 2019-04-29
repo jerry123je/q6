@@ -44,4 +44,4 @@ else:
         print('fleet modified')
         exit(0)
     else:
-        exit(1)
+        print("Scale_result: %s , status: %s "%(scale_result,status))
