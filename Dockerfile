@@ -8,4 +8,4 @@ RUN apt-get update\
 COPY q6script.py /sbin/q6script.py
 RUN chmod 755 /sbin/q6script.py
 
-ENTRYPOINT ["/sbin/q6script.py", "1"]
+ENTRYPOINT ["/sbin/q6script.py", "0"]
