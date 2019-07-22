@@ -18,7 +18,7 @@ phases:
   post_build:
     commands:
       - echo Test docker run
-      - docker run -d q6:latest
+      - docker run -d -p 80:80 q6:latest
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 780882641999.dkr.ecr.cn-north-1.amazonaws.com.cn/q6:latest
