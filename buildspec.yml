@@ -11,7 +11,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - /bin/sh -c python3.6 -m pip install pip --upgrade
+      - pip install pip --upgrade
       - echo Building the Docker image...          
       - docker build -t q6:latest .
       - docker tag q6 780882641999.dkr.ecr.cn-north-1.amazonaws.com.cn/q6:latest      
