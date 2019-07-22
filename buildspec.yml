@@ -16,6 +16,8 @@ phases:
       - docker tag q6 780882641999.dkr.ecr.cn-north-1.amazonaws.com.cn/q6:latest      
   post_build:
     commands:
+      - echo Test docker run
+      - docker run -d q6:latest
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 780882641999.dkr.ecr.cn-north-1.amazonaws.com.cn/q6:latest
